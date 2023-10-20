@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryManagementApp.Views.ProductsPage"
+             Title="Products">
+    <!-- Add an item to the toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="OnAddClicked" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout >
+        
+        <SearchBar Placeholder="Search Product Name"
+               PlaceholderColor="Silver"
+                              TextColor="Black"
+                              HorizontalTextAlignment="Center"
+               x:Name="products_searchBar"
+               TextChanged="products_searchBar_TextChanged"/>
+    
+
+            <!-- Display products in a list -->
+    <CollectionView x:Name="Products_collectionView"
+                    Margin="20"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelectionChanged">
+        
+
+        <!-- Define the appearance of each item in the list -->
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                    <StackLayout>
+                    <Label Text="{Binding product_name}"
+                           FontSize="Medium"/>
+
+                    <Label Text="{Binding product_stock, StringFormat= '{0} in stock'}"
+                           TextColor="Silver"
+                           FontSize="Small" />
+
+                    <Label Text="{Binding product_barcode, StringFormat= 'Product Barcode: {0}'}"
+                           TextColor="Silver"
+                           FontSize="Small" />
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </StackLayout>
+</ContentPage>

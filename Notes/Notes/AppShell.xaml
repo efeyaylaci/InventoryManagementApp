@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:InventoryManagementApp.Views"
+       x:Class="InventoryManagementApp.AppShell">
+    <!-- Display a bottom tab bar containing two tabs -->
+    <TabBar>
+        <ShellContent Title="Transaction History"
+                      Icon="icon_stockChanges.png"
+                      ContentTemplate="{DataTemplate views:TransactionsPage}" />
+        <ShellContent Title="Products"
+                      Icon="icon_products.png"
+                      ContentTemplate="{DataTemplate views:ProductsPage}" />
+    </TabBar>
+</Shell>

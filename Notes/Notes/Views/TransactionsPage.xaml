@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryManagementApp.Views.TransactionsPage"
+             Title="Transaction History">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="OnAddClickedT" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout >
+
+        <SearchBar Placeholder="Search Product Name"
+               PlaceholderColor="Silver"
+                              TextColor="Black"
+                              HorizontalTextAlignment="Center"
+               x:Name="transactions_searchBar"
+               TextChanged="transactions_searchBar_TextChanged"/>
+
+        <!-- Display products in a list -->
+        <CollectionView x:Name="Transactions_collectionView"
+                    Margin="20"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelectionChangedT">
+
+            <!-- Define the appearance of each item in the list -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="5">
+                        <Label Text="{Binding product_name}"
+                           FontSize="Medium"/>
+
+                        <Label Text="{Binding product_stock_change, StringFormat= 'Stock Change: {0}'}"
+                           TextColor="Silver"
+                           FontSize="Small" />
+
+                        <Label Text="{Binding payment, StringFormat= 'Payment: {0}'}"
+                           TextColor="Silver"
+                           FontSize="Small" />
+
+                        <Label Text="{Binding Date}"
+                           TextColor="Silver"
+                           FontSize="Small" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>

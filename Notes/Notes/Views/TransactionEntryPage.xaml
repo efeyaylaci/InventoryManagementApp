@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryManagementApp.Views.TransactionEntryPage"
+             Title="Transaction Entry">
+
+
+    <StackLayout Margin="20">
+        <Picker x:Name="Picker" 
+        Title="Select Product" 
+        ItemDisplayBinding="{Binding product_name}"/>
+
+        <Label Text="Stock Change" FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+        <Editor Keyboard="Numeric" Text="{Binding product_stock_change}"/>
+
+        <Label Text="Payment for transaction" FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+        <Editor Keyboard="Numeric" Text="{Binding payment}"/>
+
+
+        <Grid ColumnDefinitions="*,*">
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryManagementApp.Views.ProductEntryPage"
+             Title="Product Entry">
+    <!-- Layout children vertically -->
+    <StackLayout Margin="20">
+
+        <Label Text="Name of the Product" FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+        <Editor Placeholder="Enter your product name here"
+                Text="{Binding product_name}" />
+
+
+            <Label Text="Currently in Stock " FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+            <Editor Keyboard="Numeric" Text="{Binding product_stock}"/>
+
+        <Label Text="Product Details" FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+        <Editor Placeholder="Enter your product details here (optional)"
+                Text="{Binding product_details}" />
+        <!--<Editor Placeholder="Enter your details for the product" 
+                Text="{Binding product_details}"
+                HeightRequest="100" /> -->
+
+        
+            <Label Text="Barcode Number of Product" FontAttributes="Bold" FontSize="27" TextColor="Blue"/>
+            <Editor Keyboard="Numeric" Text="{Binding product_barcode}"/>
+        
+
+        <!-- Layout children in two columns -->
+        <Grid ColumnDefinitions="*,*">
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
